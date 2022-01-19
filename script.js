@@ -10,13 +10,13 @@ arrayButtons.forEach((element, index) => {
 
         switch (value) {
             case 'CE':
-                console.log('s')
+                startFuncao.listaCleanCE();
                 break;
             case 'C':
-                startFuncao.listaClean()
+                startFuncao.listaClean();
                 break;
             case 'DEL':
-                startFuncao.listaPop()
+                startFuncao.listaPop();
                 break;                
             case '0':
             case '1':
@@ -28,83 +28,149 @@ arrayButtons.forEach((element, index) => {
             case '7':
             case '8':
             case '9':
-                startFuncao.listaAdd(+value)
-                console.log(lista)
+            case ',':  
+                startFuncao.listaAdd(value);
+                console.log(lista);
                 break;
-            case '/':                
-            case '*':                
-            case '-':                
-            case '+':                  
-            case ',':   
-                startFuncao.somar(value)         
+            case '/':   
+                startFuncao.division(value);
+                break;             
+            case '*': 
+                startFuncao.multiplication(value)  ;             
+                break;
+            case '-':  
+                startFuncao.subtraction(value) ;             
+                break;
+            case '+':                         
+                startFuncao.add(value) ;        
                 break;    
             case '=': 
                 startFuncao.igual();
                 break;
-        }     
-        
+            
+        }        
         displayValue = lista.length 
-        console.log(displayValue)
-
-        if(displayValue === 2 ) {
+ 
+        if(lista[0] === '0' ){
+            display.innerHTML = lista['0']
+        } else if(displayValue === 2 ) {
             display.innerHTML = lista[1]
         } else if (displayValue === 1 || 3) {
-            display.innerHTML = lista[displayValue - 1]
-        }
-        
-        console.log(display.innerText)
+            display.innerHTML = lista[displayValue - 1].join('').replace('.', ',')
+        } else {
+            display.innerHTML = 'Error'
+        }       
     })
 })
 
 const calculator = {
-    somar(operador){
+    add(operador){
         if(lista.includes('0')) {
-            lista.push()
+            
+        } else if (lista.length === 2) {
+            
         } else if(lista.includes('+')) {
             console.log()
-            lista = [[(+lista[0].join('')) + (+lista[2].join(''))]]
+            lista = [[(+lista[0].join(''.replace(',', '.'))) + (+lista[2].join(''.replace(',', '.')))]]
         } else {
             lista.push(operador)
         }
          return lista
     },
+    subtraction(operador){
+        if(lista.includes('0')) {
+
+        } else if (lista.length === 2) {
+
+        } else if(lista.includes('-')) {
+            console.log('-')
+            lista = [[(+lista[0].join(''.replace(',', '.'))) - (+lista[2].join(''.replace(',', '.')))]]
+        } else {
+            lista.push(operador)
+        }
+        return lista
+    },
+    multiplication(operador) {
+        if(lista.includes('0')) {
+
+        } else if(lista.length === 2){
+
+        } else if(lista.includes('*')) {
+            lista = [[(+lista[0].join('').replace(',', '.')) * (+lista[2].join('').replace(',', '.'))]]
+        } else {
+            lista.push(operador)
+        }
+        return lista
+    },
+    division(operador) {
+        if(lista.includes('0')) {
+
+        } else if(lista.length === 2){
+
+        } else if(lista.includes('/')) {
+            lista = [[(+lista[0].join('').replace(',', '.')) / (+lista[2].join('').replace(',', '.'))]]
+        } else {
+            lista.push(operador)
+        }
+        return lista
+    },
     listaAdd(n){
-        if(lista[0] === '0') {
+        if(lista[0].includes('0')) {
             lista.shift(n)
             lista.push([n])
         } else if(lista.length === 2) {
             lista.push([n])
         } else if(lista.length === 3) {
-            lista[2].push(n)
-        } 
-        else {
+            if(lista[2].includes('0')) {
+                lista[2].shift()
+                lista[2].push(n)
+            } else {
+                lista[2].push(n)
+            }
+        } else {
             lista[0].push(n)
-        }
-        
+        }    
         return lista
     },
     listaPop(){
-        if(lista.length === 1) {
+        if(lista[0].length > 1) {
+            lista[0].pop()       
+        } else if(lista[0].length === 1) {
             lista = ['0']
-        } else {
+        }else if (lista.length === 2){
             lista.pop()
-        } 
-        
+        } else if(lista[2].length === 1){
+            lista[2] = ['0']
+        } else if(lista[2].length > 1) {
+            lista[2].pop()
+        } else {
+           
+        }   
         return lista
     },
     listaClean(){
         lista = ['0']
         return lista
     },
+    listaCleanCE() {
+        if(lista.length === 1) {
+            lista[0] = ['0']
+        } else if(lista.length === 2) {
+            lista.pop()
+        } else if(lista.length === 3) {
+            lista[2] = ['0']
+        }
+    },
     igual(){
+        
         if(lista.includes('+')) {
-            lista = [[(+lista[0].join('')) + (+lista[2].join(''))]]
+            lista = [[(+lista[0].join('').replace(',', '.')) + (+lista[2].join('').replace(',', '.'))]]
         } else if(lista.includes('-')) {
-            lista = [[(+lista[0].join('')) - (+lista[2].join(''))]]
+            lista = [[(+lista[0].join('').replace(',', '.')) - (+lista[2].join('').replace(',', '.'))]]
         } else if(lista.includes('*')) {
-            lista = [[(+lista[0].join('')) * (+lista[2].join(''))]]
+            lista = [[(+lista[0].join('').replace(',', '.')) * (+lista[2].join('').replace(',', '.'))]]
         } else if(lista.includes('/')) {
-            lista = [[(+lista[0].join('')) / (+lista[2].join(''))]]
+            lista = [[(+lista[0].join('').replace(',', '.')) / (+lista[2].join('').replace(',', '.'))]]
         } else {
             console.log('erro')
         }
@@ -112,43 +178,4 @@ const calculator = {
     }
 }
 
-// let liss = [1, '+' , 2]
-// console.log(liss[1])
-// let totaLis = liss.reduce((acc, atual, index) => {
-//     console.log(acc, atual)
-//     return acc + atual
-    
-// })
 
-// console.log(+totaLis.replace('+', ''))
-
-
-
-// const buttons = document.querySelectorAll('button')
-// let display = document.querySelector('.display')
-// let valueList = []
-// const arrayButtons = Array.from(buttons)
-
-// arrayButtons.forEach((value, index) => {
-//     value.addEventListener('click', () => {
-        
-//         value = +value.innerHTML
-//         calculate(value)
-       
-//         display = valueList.join('').innerHTML
-//         console.log(valueList.join(''))
-//     } )
-// })
-
-
-// function calculate(value){   
-//     valueList.push(value)
-
-//     return valueList
-// }
-
-
-// const CalcController = function(){
-//     this.buttons = document.querySelectorAll('button')
-//     this.display = document.querySelector('.display')
-// }
