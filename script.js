@@ -1,6 +1,9 @@
 const buttons = document.querySelectorAll('button')
-const arrayButtons = Array.from(buttons)
 const display = document.querySelector('.display')
+const displayList = document.querySelector('.display-list')
+
+const arrayButtons = Array.from(buttons)
+
 let lista = ['0']
 
 arrayButtons.forEach((element, index) => {
@@ -47,7 +50,9 @@ arrayButtons.forEach((element, index) => {
             case '=': 
                 startFuncao.igual();
                 break;
-            
+            case '+/-':
+                startFuncao.negativeOrPositive()
+                break;
         }        
         displayValue = lista.length 
  
@@ -60,6 +65,18 @@ arrayButtons.forEach((element, index) => {
         } else {
             display.innerHTML = 'Error'
         }       
+  
+        if(lista.includes('0')) {
+            displayList.innerText = lista
+        } else if(lista.length === 1) {
+            displayList.innerText = lista[0].join('')
+        } else if(lista.length === 2){
+            displayList.innerText = lista[0].concat(lista[1]).join('')
+        } else if(lista.length === 3) {
+            displayList.innerText = lista[0].concat(lista[1]).concat(lista[2]).join('')
+        } else {
+            console.log('error')
+        }
     })
 })
 
@@ -133,19 +150,21 @@ const calculator = {
         return lista
     },
     listaPop(){
-        if(lista[0].length > 1) {
-            lista[0].pop()       
-        } else if(lista[0].length === 1) {
-            lista = ['0']
-        }else if (lista.length === 2){
-            lista.pop()
-        } else if(lista[2].length === 1){
-            lista[2] = ['0']
-        } else if(lista[2].length > 1) {
-            lista[2].pop()
+        if(lista.length === 1) {
+            if(lista[0].length > 1){
+                lista[0].pop()       
+            } else {
+                lista[0] = ['0']
+            }
+        } else if(lista.length === 2) {
+           lista.pop()
         } else {
-           
-        }   
+            if(lista[2].length > 1){
+                lista[2].pop() 
+            } else {
+                lista[2] = ['0']
+            }
+        }
         return lista
     },
     listaClean(){
@@ -161,8 +180,7 @@ const calculator = {
             lista[2] = ['0']
         }
     },
-    igual(){
-        
+    igual(){  
         if(lista.includes('+')) {
             lista = [[(+lista[0].join('').replace(',', '.')) + (+lista[2].join('').replace(',', '.'))]]
         } else if(lista.includes('-')) {
@@ -175,7 +193,29 @@ const calculator = {
             console.log('erro')
         }
         return lista
+    },
+    negativeOrPositive() {
+        
+        if(lista.length === 1) {
+            if(+lista[0].join('') < 0) {
+                let valueArray = +lista[0].join('') * -1
+                lista[0] = [valueArray]
+            } else {
+                let valueArray = +lista[0].join('') * -1
+                lista[0] = [valueArray]
+            }
+        } else if(lista.length === 3) {
+            if(+lista[2].join('') < 0) {
+                let valueArray = +lista[2].join('') * -1
+                lista[2] = [valueArray]
+            } else {
+                let valueArray = +lista[2].join('') * -1
+                lista[2] = [valueArray]
+            }
+        }
+         else {
+            console.log('Error')
+        }
+        return lista
     }
 }
-
-
