@@ -5,13 +5,18 @@ export default class Calculator {
     this.displayCalc = document.querySelector(displayCalc);
     this.valueDisplay = 0;
     this.calcValueDisplay = [];
-    this.valueCalculator = [];
+    this.countValue = [];
+    this.valueCalculator = [0];
+    this.regex = /[0-9/+*-]/g;
   }
 
   handleEvent(button) {
     button.forEach((element) => {
-      element.addEventListener('click', ({ innerText }) => {
-        if (isNaN(innerText)) {
+      element.addEventListener('click', () => {
+        this.countValue.push(element.innerText);
+        console.log(this.countValue);
+        console.log(isNaN(element.innerText));
+        if (isNaN(element.innerText)) {
           this.typeOperation(element);
         }
         this.innerValue(element);
@@ -20,14 +25,13 @@ export default class Calculator {
   }
 
   innerValue({ innerText }) {
-    if (!isNaN(innerText)) {
-      if (this.display.innerText == 0) {
-        this.valueDisplay = innerText;
-      } else {
-        this.valueDisplay += innerText;
-        this.calcValueDisplay.push(Number.parseInt(innerText));
-      }
+    if (this.display.innerText == 0) {
+      this.valueDisplay = innerText;
+    } else {
+      this.valueDisplay += innerText;
+      this.calcValueDisplay.push(+innerText);
     }
+
     this.display.innerText = this.valueDisplay;
     this.displayCalc.innerText = this.calcValueDisplay;
     console.log(this.calcValueDisplay);
@@ -59,12 +63,7 @@ export default class Calculator {
     }
   }
 
-  operation(type) {
-    this.valueCalculator.push(+this.calcValueDisplay.join('').replace(',', ''));
-    console.log(this.valueCalculator);
-
-    this.calcValueDisplay.push(type);
-  }
+  operation(type) {}
 
   cleanC() {
     this.valueDisplay = 0;
@@ -73,6 +72,5 @@ export default class Calculator {
 
   init() {
     this.handleEvent(this.button);
-    console.log(this.display);
   }
 }
