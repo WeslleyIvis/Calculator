@@ -32,8 +32,6 @@ valorM.forEach((element) => {
 const valorD = document.querySelectorAll('.valorDelta');
 const textD = document.querySelector('.textD');
 
-
-
 valorD.forEach((element) => {
   element.addEventListener('keyup', () => {
     if (
@@ -61,11 +59,27 @@ function calcDelta(a, b, c) {
 
 const nome = document.querySelectorAll(".calc-idade");
 const textCalc = document.querySelector(".textCalc");
+const data = new Date();
+console.log(data.getFullYear());
 
 nome.forEach((element) => {
     element.addEventListener('keyup', () => {
-      textCalc.innerHTML = `Nome: ${element[0].value} <br> Idade: ${element[1].value}`
+      textCalc.innerHTML = `Nome: ${nome[0].value} <br> Idade: ${data.getFullYear() - +nome[1].value}`
     })
 })
 
 
+// 10) Faça um script que receba a altura de um degrau de uma escada e a altura que um pedreiro deseja alcançar utilizando essa escada, calcule e mostre quantos degraus ele deverá subir para atingir seu objetivo, os valores fornecidos devem ser em metros.
+
+
+const alturaDegrau = document.querySelectorAll('.calc-dg');
+const textDg = document.querySelector('.textDg');
+
+
+alturaDegrau.forEach((element) => {
+  element.addEventListener('keyup', () => {
+    if (alturaDegrau[0] != '' && alturaDegrau[1] != '') {
+      textDg.innerHTML = `Quantidade de Degraus: ${+alturaDegrau[1].value / +alturaDegrau[0].value}`
+    }
+  })
+})
