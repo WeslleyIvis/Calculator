@@ -1,80 +1,99 @@
-:root {
-    --h4-color: rgb(42, 176, 253);
-    --p-color: white;
-    --section-width: 500px;
-}
-
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    list-style: none;
+}
+
+.bg {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dc3e1391-fbf2-48ff-9e4b-b73f9d879505/dfefe1q-8aaea67c-492c-4544-8f37-9cd13d41cfc4.png/v1/fill/w_1280,h_854,q_80,strp/welcome_to_night_city_by_clevergull_dfefe1q-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvZGMzZTEzOTEtZmJmMi00OGZmLTllNGItYjczZjlkODc5NTA1XC9kZmVmZTFxLThhYWVhNjdjLTQ5MmMtNDU0NC04ZjM3LTljZDEzZDQxY2ZjNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.roYNAHQulcOpQvwNZuh1Ao4M688wTlHJshMGS4nxSPw');
+    background-size: cover;
 }
 
 h1, h2, h3, h4, h5 {
-    color: var(--h4-color);
+    color: orange;
 }
-
-input {
-    border: none;
-    outline: none;
-    padding: 10px;
-    margin: 10px 5px 10px 0;
-    width: calc(var(--section-width) / 2.3);
-}
-
-.container-bg {
-    z-index: -1;
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/13570593-d036-4374-9dce-1e26c9c05170/dcmhwbt-7478720d-d5c6-463b-beaa-f6a5562982c6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzEzNTcwNTkzLWQwMzYtNDM3NC05ZGNlLTFlMjZjOWMwNTE3MFwvZGNtaHdidC03NDc4NzIwZC1kNWM2LTQ2M2ItYmVhYS1mNmE1NTYyOTgyYzYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.kDl1-8y7y-HQqIQBhJVvodAOdHMpuCwyDPCKlRj9qSA');
-    background-size: cover;
-    animation: 120s newimg infinite forwards;
-}
-
-
-/* @keyframes newimg {
-    50% {background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/13570593-d036-4374-9dce-1e26c9c05170/dc7uh8l-5695975d-4a2a-45ae-be55-f2dac437b38d.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzEzNTcwNTkzLWQwMzYtNDM3NC05ZGNlLTFlMjZjOWMwNTE3MFwvZGM3dWg4bC01Njk1OTc1ZC00YTJhLTQ1YWUtYmU1NS1mMmRhYzQzN2IzOGQucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.7VvJ232U7hIT5G8oORxc37bQ983Jl0woHishIe3sV3E');}
-} */
-
 
 .container {
-    background-color: rgba(17, 17, 17, 0.849);
-    max-width: var(--section-width); 
+    width: 700px;
     margin: 0 auto;
-    padding: 5em;
-    color: var(--p-color);
+    background-color: rgba(31, 31, 31, 0.911);
+    padding: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
 }
 
-.container table {
-    text-align: center; 
-    margin: 10px auto;
-    width: 100%;
-}
+
 
 .container section {
-    margin: 50px 0%;
+    padding: 50px;
+    margin: 0 auto  ;
 }
 
-.table-parcelas td, tr {
+.container section:nth-child(2) {
+    background-color: black;
+}
+
+.container section p {
+    padding: 10px 0 20px 0; 
+}
+
+.container section div{
+    margin: 5px 0;
+}
+
+.container section input[type="text"] {
+    margin: 10px 10px 10px 0;
     padding: 10px;
-    background-color: rgb(34, 34, 34);
+    border: none;
+    outline: none;
 }
 
-.thead-color {
-    background-color: rgb(129, 198, 255) !important;
+.container section div label {
+    margin: 0 10px 0 0;
 }
 
-.validar-notas {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+/* STYLE ATv 8*/
+
+.imposto-table {
+    margin: 15px 0;
 }
 
-.validar-notas h4 {
-    grid-column: 1/4;
+.imposto-table td, tr {
+    border: 1px solid rgb(75, 75, 75);
+    background-color: rgba(26, 26, 26, 0.856);
+    padding: 10px;
 }
 
-.validar-notas input {
-    max-width: 130px;
+#text-atv8 {
+    width: 250px;
+    color: white;
 }
+
+/* STYLE ATv 9*/
+
+.button-atv9 {
+    background-color: orange;
+    font-size: 1.1em;
+    font-weight: bold;
+    border: none;
+    color: black;
+    transition: .3s;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+}
+
+.button-atv9:hover {
+    border-radius: 5%;
+    font-size: 1.5em;
+    background-color: rgb(255, 115, 0);
+}
+
+/* STYLE ATv 10*/
+
+.text-atv10 tr td {
+    padding: 10px;
+}}

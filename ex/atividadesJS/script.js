@@ -1,98 +1,115 @@
-// 1) Criar um script que solicite ao usuário o valor total da compra e a quantidade de parcelas a financiar e o sistema deve visualizar o valor de cada parcela de acordo com os juros da tabela abaixo. Utilize campos de texto para ler os valores e dar a resposta ao usuário:
+// 7)
 
-const valueParcelas = document.querySelectorAll('.input-p');
-const tableParcelas = document.querySelector('.table-parcelas');
+const inputAtv7 = document.querySelectorAll('.input-atv7');
+const radioAtv7 = document.getElementsByName('radio-atv7');
+const textAtv7 = document.querySelector('.text-atv7');
+let imc = 0;
 
-valueParcelas.forEach((element) => {
-	element.addEventListener('keyup', () => {
-		let html = `        
-			<tr class="thead-color">
-				<td>N° Parcelas</td>
-				<td>Valor da Parcela</td>
-				<td>% de Juros</td>
-				<td>Juros Parcela</td>
-				<td>Juros Total</td>
-			</tr>`;
-		let parcelas = 0;
-		let valorP = parseFloat(valueParcelas[0].value);
-		let juros = 0;
-		let valorJurosM = 0;
-		let valorJurosT= 0;
-		
-		if (valueParcelas[1].value < 2) {
-			juros = 0;
-		} else if (valueParcelas[1].value >= 2 && valueParcelas[1].value < 5) {
-			juros = 2;
-		} else {
-			juros = (70 / 100).toFixed(3);
-		}
-
-		for (let i = 0; i < +valueParcelas[1].value; i++) {
-			html += `
-			<tr>
-			<td>${parcelas += 1}</td>
-			<td>${valorP.toFixed(2)} </td>
-			<td>% ${juros} </td>
-			<td>${valorJurosM.toFixed(2)} </td>
-			<td>${valorJurosT.toFixed(2)} </td>
-			</tr>`	
-
-			valorJurosM = valorP * juros * 1 / 100;
-			valorJurosT += valorJurosM
-			valorP = valorP + valorJurosM;
-		}
-		tableParcelas.innerHTML = html;
-	})
-});
-
-// 3) Faça um script que receba dois números inteiros e mostre qual é o maior ou se são iguais. Leia os valores por meio de um formulário e mostre a mensagem final em um campo de texto.
-
-const valores = document.querySelectorAll(".valor-ex2");
-const textEx2 = document.querySelector(".text-ex2");
-
-valores.forEach((element) => {
-	element.addEventListener('keyup', () => {
-		if (parseInt(valores[0].value) > parseInt(valores[1].value)) {
-			textEx2.innerHTML = `Maior número: ${parseInt(valores[0].value)}`
-		} 
-		else if (parseInt(valores[0].value) == parseInt(valores[1].value)) {
-			textEx2.innerHTML = `Os valores são iguais: ${parseInt(valores[0].value)}`
-		}
-		else {
-			textEx2.innerHTML = `Maior número: ${parseInt(valores[1].value)}`
-		}
-	})
-})
-
-// 4) Crie um arquivo HTML que utilizando JavaScript leia a base e a altura de um retângulo (por meio de um formulário), calcule sua área e apresente os resultados em um campo de texto ou textarea.
-
-const retangulo = document.querySelectorAll('.valor-ex3');
-const textEx3 = document.querySelector('.text-ex3');
-
-retangulo.forEach((element) => {
-	element.addEventListener('keyup', () => {
-		if (retangulo[0].value != '' && retangulo[1].value != '') {
-			textEx3.innerText = `Valor: ${+retangulo[0].value * +retangulo[1].value}`
-		} 
-	})
+inputAtv7.forEach((element) => {
+    element.addEventListener('keyup', () => {
+        imc = Number(inputAtv7[0].value / (inputAtv7[1].value * inputAtv7[1].value));
+        console.log(imc)
+        if (inputAtv7[0] != '' && inputAtv7[1] != '') {
+            if(radioAtv7[1].checked) {
+                if(imc < 19.1) {
+                    textAtv7.innerText = `${radioAtv7[1].value}: Abaixo do peso`
+                } else if (imc < 25.8) {
+                    textAtv7.innerText = `${radioAtv7[1].value}: Peso normal`
+                } else if (imc < 27.3) {
+                    textAtv7.innerText = `${radioAtv7[1].value}: Acima do peso`
+                } else if (imc < 32.3) {
+                    textAtv7.innerText = `${radioAtv7[1].value}: Acima do peso idela`
+                } else {
+                    textAtv7.innerText = `${radioAtv7[1].value}: Obeso`
+                }
+            } else if(radioAtv7[0].checked) {
+                if(imc < 20.7) {
+                    textAtv7.innerText = `${radioAtv7[0].value}: Abaixo do peso`
+                } else if (imc < 26.4) {
+                    textAtv7.innerText = `${radioAtv7[0].value}: Peso normal`
+                } else if (imc < 27.8) {
+                    textAtv7.innerText = `${radioAtv7[0].value}: Acima do peso`
+                } else if (imc < 31.1) {
+                    textAtv7.innerText = `${radioAtv7[0].value}: Acima do peso idela`
+                } else {
+                    textAtv7.innerText = `${radioAtv7[0].value}: Obeso`
+                }
+            }
+        }
+    })
 })
 
 
-// 5) Faça um script que receba três notas reais (três campos de texto), calcule e mostre a média do aluno e o conceito conforme regras abaixo
+// 8) 
 
-const notas = document.querySelectorAll(".valor-ex4");
-const textEx4 = document.querySelector(".text-ex4");
+const valorSalario = document.querySelector('#salario-atv8');
+const textAtv8 = document.getElementById('text-atv8');
 
-notas.forEach((element) => {
-	element.addEventListener('keyup', () => {		
-		let media = +` ${(parseFloat(notas[0].value) + parseFloat(notas[1].value) + parseFloat(notas[2].value)) / 3}`
+valorSalario.addEventListener('keyup', () => {
+    let valorImposto = Number(valorSalario.value);
 
-		if (media >= 6) {
-			textEx4.innerHTML = "Aprovado"	
-		} else if (media >= 3 && media < 6) {
-			textEx4.innerText = "Exame"
-		} else {
-			textEx4.innerText = "Reprovado"
-		}
-	})
+    if (valorImposto <= 1434) {
+        textAtv8.value = valorImposto;      
+    } else if ( valorImposto <= 2150 ) {
+        textAtv8.value = `Imposto: ${(valorImposto * .075).toFixed(2)} || Salario: ${valorImposto - valorImposto * .075}`;
+    } else if (valorImposto <= 2866) {
+        textAtv8.value = `Imposto: ${(valorImposto * .15).toFixed(2)} || Salario: ${valorImposto - valorImposto * .15}`
+    } else if (valorImposto <= 3582) {
+        textAtv8.value = `Imposto: ${(valorImposto * .225).toFixed(2)} || Salario: ${valorImposto - valorImposto * .225}`
+    } else {
+        textAtv8.value = `Imposto: ${(valorImposto * .275).toFixed(2)} || Salario: ${valorImposto - valorImposto * .275}`
+    } 
+})
+
+
+// 9)
+
+const inputsAtv9 = document.querySelectorAll('#valorAtv9');
+const operacoes = document.querySelectorAll('.button-atv9');
+const textAtv9 = document.querySelector('.text-atv9')
+
+operacoes.forEach((element) => {
+    element.addEventListener('click', () => {
+        
+        if (inputsAtv9[0].value != "" && inputsAtv9[1].value != "") {
+            switch(element.innerText) {
+                case '+':
+                    textAtv9.innerText = `Soma: ${+inputsAtv9[0].value + +inputsAtv9[1].value}`
+                    break;
+                case '-':
+                    textAtv9.innerText = `Subtração: ${+inputsAtv9[0].value - +inputsAtv9[1].value}`
+                    break;
+                case '*':
+                    textAtv9.innerText = `Multiplicação: ${+inputsAtv9[0].value * +inputsAtv9[1].value}`
+                    break;
+                case '/':
+                    textAtv9.innerText = `Divisão: ${+inputsAtv9[0].value / +inputsAtv9[1].value}`
+                    break;
+            }    
+        }
+    })
+})
+
+
+// 10)
+
+const inptAtv10 = document.querySelector('#input-atv10');
+const textAtv10 = document.querySelector('.text-atv10');
+
+inptAtv10.addEventListener('keyup', () => {
+    let fatorial = +inptAtv10.value;
+    let j = 1;
+
+    textAtv10.innerText = ''
+    for(let x = 1; x < fatorial ; x++) {
+        textAtv10.innerHTML += `<tr>
+                                    <td>${x}</td>
+                                    <td>${j}</td>
+                                </tr>`
+        j += j * x
+    }
+    textAtv10.innerHTML += `<tr>
+                                <td>${fatorial}</td>
+                                <td>${j}</td>
+                            </tr>`
 })

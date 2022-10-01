@@ -6,48 +6,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>JS_ATV</title>
+
+    <title>Faculdade</title>
 </head>
 
 <body>
-    <div class="container-bg"></div>
 
+    <div class="bg"></div>
 
     <div class="container">
+        <section class="atv-7">
+            <p>7) Fazer uma página HTML que leia a altura, o peso e o sexo de uma pessoa por meio de um formulário e
+                mostre na página o IMC (Índice de Massa Corporal) da pessoa e a categoria na qual se enquadra segundo
+                a OMS (Organização Mundial de Saúde). Cada informação deve ser apresentada em uma linha e a
+                formatação da fonte utilizando classe CSS deve seguir a seguinte regra:
+                - fonte Arial, azul, 24pt.
+                A fórmula para o cálculo do IMC é dada por: IMC = peso / (altura * altura)
+                A tabela a seguir mostra as faixas para homens e mulheres.</p>
+
+            <h4>Padrões de peso</h4>
+            <input type="text" title="peso" class="input-atv7" placeholder="Peso ex: 64.9">
+            <input type="text" title="peso" class="input-atv7" placeholder="Altura ex: 1.75">
+            <div>
+                <input type="radio" id="homen" class="radio-atv7" value="Homen" name="radio-atv7" checked>
+                <label for="homen">Homen</label>
+                <input type="radio" id="mulher" class="radio-atv7" value="Mulher" name="radio-atv7">
+                <label for="mulher">Mulher</label>
+            </div>
+            <p class="text-atv7"></p>
+        </section>
+        <hr>
         <section>
-            <h4>Valor total e Quantidade de Parcelas</h4>
-            <input type="text" title="Valor Total" class="input-p" placeholder="Valor">
-            <input type="text" title="Parcelas" class="input-p" placeholder="Parcelas">
-            <table class="table-parcelas">
+            <p>8) Crie um arquivo HTML que contenha um formulário conforme exemplo
+                abaixo:
+                Neste mesmo arquivo crie uma função JavaScript que calcule o imposto de
+                renda a partir do salário informado, respeitando a faixa salarial conforme
+                apresentado na tabela. Depois, coloque o resultado do cálculo na caixa de
+                texto correspondente ao IR.</p>
+
+            <h3>Calculo do imposto de Renda</h3>
+
+            <table class="imposto-table">
+                <thead>
+                    <tr>
+                        <td><b>Faixa Salarial</b> </td>
+                        <td><b>Alíquota</b> </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>até R$ 1.434</td>
+                        <td>0% (isento)</td>
+                    </tr>
+                    <tr>
+                        <td>De R$ 1.434 a R$ 2.150</td>
+                        <td>7,5%</td>
+                    </tr>
+                    <tr>
+                        <td>De R$ 2.150 a R$ 2.866</td>
+                        <td>15%</td>
+                    </tr>
+                    <tr>
+                        <td>De R$ 2.866 a R$ 3.582</td>
+                        <td>22,5%</td>
+                    </tr>
+                    <tr>
+                        <td>Acima de R$ 3.582</td>
+                        <td>27,5%</td>
+                    </tr>
+                </tbody>
             </table>
+
+            <h4>Informe seu salario</h4>
+            <input type="text" name="salario" id="salario-atv8" placeholder="Salario">
+            <input type="text" id="text-atv8" disabled>
         </section>
+        <hr>
+
+        <section class="section-atv9">
+            <p>9) Crie um arquivo HTML que contenha um formulário conforme
+                exemplo abaixo:
+                Neste mesmo arquivo crie uma função
+                JavaScript que calcule a operação
+                associada pelo clique no botão
+                correspondente. Depois, coloque o
+                resultado do calculo na caixa de texto
+                correspondente ao Resultado.
+            </p>
+
+            <h3>Insira valores nas caixas e escolha a operação</h3>
+            <input type="text" name="valor1" id="valorAtv9" placeholder="Valor">
+            <input type="text" name="valor2" id="valorAtv9" placeholder="Valor">
+
+            <button class="button-atv9">+</button>
+            <button class="button-atv9">-</button>
+            <button class="button-atv9">*</button>
+            <button class="button-atv9">/</button>
+
+            <p class="text-atv9"></p>
+        </section>
+        <hr>
 
         <section>
-            <h4>Informe dois valores</h4>
-            <input type="text" title="valor1" class="valor-ex2" placeholder="Valor Inteiro">
-            <input type="text" title="valor2" class="valor-ex2" placeholder="Valor Inteiro">
-            <p class="text-ex2"></p>
+            <p>10. Calcular o fatorial de N. N é digitado pelo usuário em um campo de texto e o resultado será exibido em outro campo.
+            </p>
+
+            <h3>Insira um valor para saber o Fatorial</h3>
+
+            <input type="text" name="fatorial" id="input-atv10" placeholder="Valor">
+
+            <table class="text-atv10"></table>
         </section>
+        <hr>
 
         <section>
-            <h4>Base e altura de um retângulo</h4>
-            <input type="text" title="valor1" class="valor-ex3" placeholder="Valor Base">
-            <input type="text" title="valor2" class="valor-ex3" placeholder="Valor Altura">
-            <p class="text-ex3"></p>
-        </section>
-
-        <section class="validar-notas">
-            <h4>Notas</h4>
-            <input type="text" title="valor1" class="valor-ex4" placeholder="1° Nota">
-            <input type="text" title="valor2" class="valor-ex4" placeholder="2° Nota">
-            <input type="text" title="valor3" class="valor-ex4" placeholder="3° Nota">
-            <p class="text-ex4"></p>
+            <p>11. Faça uma função que receba um número inteiro e positivo N como parâmetro e retorne a soma dos números inteiros existentes entre o número 1 e N (o número N também deve entrar na soma). Leia os valores por meio de um campo de texto e mostre o resultado em outro campo de texto.
+            </p>
         </section>
 
     </div>
 
-    <script src="script.js"></script>
-
+    <script src="scrpit.js"></script>
 </body>
 
 </html>
