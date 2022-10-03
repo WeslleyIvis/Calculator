@@ -3,13 +3,25 @@
     padding: 0;
 }
 
+body {
+    background-color: rgb(17, 17, 17);
+}
+
 .bg {
     position: fixed;
+    left: 10%;
     z-index: -1;
-    width: 100%;
+    width: 80%;
     height: 100%;
-    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dc3e1391-fbf2-48ff-9e4b-b73f9d879505/dfefe1q-8aaea67c-492c-4544-8f37-9cd13d41cfc4.png/v1/fill/w_1280,h_854,q_80,strp/welcome_to_night_city_by_clevergull_dfefe1q-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvZGMzZTEzOTEtZmJmMi00OGZmLTllNGItYjczZjlkODc5NTA1XC9kZmVmZTFxLThhYWVhNjdjLTQ5MmMtNDU0NC04ZjM3LTljZDEzZDQxY2ZjNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.roYNAHQulcOpQvwNZuh1Ao4M688wTlHJshMGS4nxSPw');
+    background-image:  url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dc3e1391-fbf2-48ff-9e4b-b73f9d879505/dfefe1q-8aaea67c-492c-4544-8f37-9cd13d41cfc4.png/v1/fill/w_1280,h_854,q_80,strp/welcome_to_night_city_by_clevergull_dfefe1q-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvZGMzZTEzOTEtZmJmMi00OGZmLTllNGItYjczZjlkODc5NTA1XC9kZmVmZTFxLThhYWVhNjdjLTQ5MmMtNDU0NC04ZjM3LTljZDEzZDQxY2ZjNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.roYNAHQulcOpQvwNZuh1Ao4M688wTlHJshMGS4nxSPw');
     background-size: cover;
+    -webkit-mask-image: linear-gradient(to top, transparent 1%, black 100%);
+    animation: mud 30s infinite 10s;
+}
+
+@keyframes mud {
+    0% {filter: hue-rotate(0deg);}
+    100% {filter: hue-rotate(360deg);}
 }
 
 h1, h2, h3, h4, h5 {
@@ -25,11 +37,10 @@ h1, h2, h3, h4, h5 {
     color: white;
 }
 
-
-
 .container section {
     padding: 50px;
     margin: 0 auto  ;
+    position: relative;
 }
 
 .container section:nth-child(2) {
@@ -96,4 +107,28 @@ h1, h2, h3, h4, h5 {
 
 .text-atv10 tr td {
     padding: 10px;
-}}
+}
+
+/* STYLE ATv 12*/
+
+.button-atv12 {
+    border: none;
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: bolder;
+    background-color: rgb(41, 34, 23);
+    cursor: pointer;
+    border-radius: 5px;
+    animation: animaBut 3s infinite;
+    position: absolute;
+}
+
+@keyframes animaBut {
+    0% {
+        filter: hue-rotate(0deg);
+        top: 90%;
+    } 50% {
+        filter: hue-rotate(360deg);
+        top: 91%;
+    } 100% {top: 90%;}
+}

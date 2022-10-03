@@ -8,7 +8,6 @@ let imc = 0;
 inputAtv7.forEach((element) => {
     element.addEventListener('keyup', () => {
         imc = Number(inputAtv7[0].value / (inputAtv7[1].value * inputAtv7[1].value));
-        console.log(imc)
         if (inputAtv7[0] != '' && inputAtv7[1] != '') {
             if(radioAtv7[1].checked) {
                 if(imc < 19.1) {
@@ -69,8 +68,7 @@ const operacoes = document.querySelectorAll('.button-atv9');
 const textAtv9 = document.querySelector('.text-atv9')
 
 operacoes.forEach((element) => {
-    element.addEventListener('click', () => {
-        
+    element.addEventListener('click', () => {      
         if (inputsAtv9[0].value != "" && inputsAtv9[1].value != "") {
             switch(element.innerText) {
                 case '+':
@@ -112,4 +110,65 @@ inptAtv10.addEventListener('keyup', () => {
                                 <td>${fatorial}</td>
                                 <td>${j}</td>
                             </tr>`
+})
+
+
+// 11)
+
+const valorAtv11 = document.getElementById('inputAtv11');
+const textAtv11 = document.querySelector('.text-atv11');
+let count11;
+
+valorAtv11.addEventListener('keyup', () => {
+	count11 = 0
+	for(let x = 0; x <= Number(valorAtv11.value); x++) {
+		count11+= x;
+	}
+	textAtv11.innerHTML = `Valor Da soma de 0 a N: <b>${count11}</b>`
+})
+
+
+// 12)
+
+const valorAtv12 = document.querySelector('#input-atv12');
+const textAtv12 = document.querySelector('.text-atv12');
+const section12 = document.querySelector('.atv12');
+let random = Math.round(Math.random() * 100)
+
+console.log(`Resultado Random: ${random}`)
+
+valorAtv12.addEventListener('keyup', () => {
+	textAtv12.style.margin = '10px 0';
+	textAtv12.style.width = '150px';
+	textAtv12.style.padding = '10px';
+	textAtv12.style.textAlign = 'center';
+
+
+	if (Number(valorAtv12.value) == random) {
+		textAtv12.style.backgroundColor = 'orange';
+		let button = document.createElement('button');
+		button.setAttribute('class', 'button-atv12')
+		textAtv12.innerHTML = `Você venceu`
+		button.innerText = 'Tentar Novamente'
+		section12.appendChild(button);
+		random = -999
+		button.addEventListener('click', () => {	
+			random = Math.round(Math.random() * 100)
+			valorAtv12.value = ''
+			textAtv12.innerHTML = ''
+			textAtv12.style.backgroundColor = 'transparent'
+			section12.removeChild(section12.lastChild)
+		})
+	} else if (valorAtv12.value == '') {
+		valorAtv12.value = ''
+		textAtv12.innerHTML = ''
+		textAtv12.style.backgroundColor = 'transparent'
+	}
+	else if (Number(valorAtv12.value) > random) {
+		textAtv12.innerHTML = `Este valor é MAIOR`;
+		textAtv12.style.backgroundColor = 'darkred';
+	} else if (Number(valorAtv12.value) < random) {
+		textAtv12.innerHTML = 'Este valor é MENOR'
+		textAtv12.style.backgroundColor = 'green'
+	}
 })
