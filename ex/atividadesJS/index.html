@@ -12,140 +12,57 @@
 
 <body>
 
-    <div class="bg"></div>
+    <div class="bg-image"></div>
 
     <div class="container">
-        <section class="atv-7">
-            <p>7) Fazer uma página HTML que leia a altura, o peso e o sexo de uma pessoa por meio de um formulário e
-                mostre na página o IMC (Índice de Massa Corporal) da pessoa e a categoria na qual se enquadra segundo
-                a OMS (Organização Mundial de Saúde). Cada informação deve ser apresentada em uma linha e a
-                formatação da fonte utilizando classe CSS deve seguir a seguinte regra:
-                - fonte Arial, azul, 24pt.
-                A fórmula para o cálculo do IMC é dada por: IMC = peso / (altura * altura)
-                A tabela a seguir mostra as faixas para homens e mulheres.</p>
+        <nav>
+            <ul class="nav-menu">
+                <li>Ex 1) Table</li>
+                <li>Ex 2) Table</li>
+                <li>Ex 5) Slide</li>
+            </ul>
+        </nav>
 
-            <h4>Padrões de peso</h4>
-            <input type="text" title="peso" class="input-atv7" placeholder="Peso ex: 64.9">
-            <input type="text" title="peso" class="input-atv7" placeholder="Altura ex: 1.75">
-            <div>
-                <input type="radio" id="homen" class="radio-atv7" value="Homen" name="radio-atv7" checked>
-                <label for="homen">Homen</label>
-                <input type="radio" id="mulher" class="radio-atv7" value="Mulher" name="radio-atv7">
-                <label for="mulher">Mulher</label>
-            </div>
-            <p class="text-atv7"></p>
-        </section>
-        <hr>
-        <section>
-            <p>8) Crie um arquivo HTML que contenha um formulário conforme exemplo
-                abaixo:
-                Neste mesmo arquivo crie uma função JavaScript que calcule o imposto de
-                renda a partir do salário informado, respeitando a faixa salarial conforme
-                apresentado na tabela. Depois, coloque o resultado do cálculo na caixa de
-                texto correspondente ao IR.</p>
+        <main>
+            <section class="atv ex-1">
+                <input type="text" title="adicionar" id="inptNome">
+                <button type="button" class="btn">Adicionar</button>
+                <button type="button" class="btn">Excluir</button>
+                <table></table>
+            </section>
 
-            <h3>Calculo do imposto de Renda</h3>
+            <section class="atv ex-2">
+                <input type="text" title="linha" class="btnAtv2">
+                <input type="text" title="coluna" class="btnAtv2">
+                <table>
+                    <tbody></tbody>
+                </table>
+            </section>
 
-            <table class="imposto-table">
-                <thead>
-                    <tr>
-                        <td><b>Faixa Salarial</b> </td>
-                        <td><b>Alíquota</b> </td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>até R$ 1.434</td>
-                        <td>0% (isento)</td>
-                    </tr>
-                    <tr>
-                        <td>De R$ 1.434 a R$ 2.150</td>
-                        <td>7,5%</td>
-                    </tr>
-                    <tr>
-                        <td>De R$ 2.150 a R$ 2.866</td>
-                        <td>15%</td>
-                    </tr>
-                    <tr>
-                        <td>De R$ 2.866 a R$ 3.582</td>
-                        <td>22,5%</td>
-                    </tr>
-                    <tr>
-                        <td>Acima de R$ 3.582</td>
-                        <td>27,5%</td>
-                    </tr>
-                </tbody>
-            </table>
+            <section class="atv ex-3">
+                <div class="menu-ex3">
+                    <ul>
+                        <li>Cronômetro</li>
+                        <li>Slide Show</li>
+                        <li>Tabuada</li>
+                    </ul>
+                </div>
 
-            <h4>Informe seu salario</h4>
-            <input type="text" name="salario" id="salario-atv8" placeholder="Salario">
-            <input type="text" id="text-atv8" disabled>
-        </section>
-        <hr>
+                <div class="atv3 crono">
+                    <button type="button" class="btn-crono" title="start">Start</button>
+                    <button type="button" class="btn-crono" title="para">Parar</button>
+                    <button type="button" class="btn-crono" title="zerar">Zerar</button>
+                </div>
+                <div class="atv3">2</div>
+                <div class="atv3 tab">
+                    <input type="text" title="tab" class="inpt-tab" placeholder="Tabuada">
+                    <input type="text" title="quantidade" class="inpt-tab" placeholder="Quantidade">
+                    <p class="result-tab"></p>
+                </div>
+            </section>
 
-        <section class="section-atv9">
-            <p>9) Crie um arquivo HTML que contenha um formulário conforme
-                exemplo abaixo:
-                Neste mesmo arquivo crie uma função
-                JavaScript que calcule a operação
-                associada pelo clique no botão
-                correspondente. Depois, coloque o
-                resultado do calculo na caixa de texto
-                correspondente ao Resultado.
-            </p>
-
-            <h3>Insira valores nas caixas e escolha a operação</h3>
-            <input type="text" name="valor1" id="valorAtv9" placeholder="Valor">
-            <input type="text" name="valor2" id="valorAtv9" placeholder="Valor">
-
-            <button class="button-atv9">+</button>
-            <button class="button-atv9">-</button>
-            <button class="button-atv9">*</button>
-            <button class="button-atv9">/</button>
-
-            <p class="text-atv9"></p>
-        </section>
-        <hr>
-
-        <section>
-            <p>10. Calcular o fatorial de N. N é digitado pelo usuário em um campo de texto e o resultado será exibido em outro campo.
-            </p>
-
-            <h3>Insira um valor para saber o Fatorial</h3>
-
-            <input type="text" name="fatorial" id="input-atv10" placeholder="Valor">
-
-            <table class="text-atv10"></table>
-        </section>
-        <hr>
-
-        <section>
-            <p>11. Faça uma função que receba um número inteiro e positivo N como parâmetro e retorne a soma dos números inteiros existentes entre o número 1 e N (o número N também deve entrar na soma). Leia os valores por meio de um campo de texto e mostre o resultado em outro campo de texto.
-            </p>
-
-            <h4>Insira um valor</h4>
-            <input type="text" id="inputAtv11" title="valor" placeholder="Valor">
-            <p class="text-atv11"></p>
-        </section>
-        <hr>
-
-        <section class="atv12">
-            <p>12. Desenvolver um programa que gere um número aleatório de 0 a 100. O usuário deve chutar um número e o programa vai dizer se o número é maior ou menor que o chutado, o programa deverá ler o valor do usuário até ele acertar o número sorteado por meio de um formulário. Quando o usuário acertar,o programa imprime quantas tentativas foram necessárias para descobrir. Ao final, o programa deve perguntar se o usuário quer jogar novamente, se recomeçar. Para gerar o número aleatório vocêdeverá usar o comando:
-                <br>
-                <br>
-                <code>
-                    var num = Math.round(Math.random()*100)
-                </code>
-            </p>
-
-            <h4>Teste sua sorte ou não RSRS</h4>
-
-            <input type="text" name="valor" id="input-atv12" title="valor">
-            <p class="text-atv12"></p>
-        </section>
-
+        </main>
     </div>
-
     <script src="script.js"></script>
 </body>
 

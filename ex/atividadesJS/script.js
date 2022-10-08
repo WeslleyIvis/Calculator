@@ -1,174 +1,124 @@
-// 7)
+const menu = document.querySelectorAll('.nav-menu li');
+const sections = document.querySelectorAll('.atv');
 
-const inputAtv7 = document.querySelectorAll('.input-atv7');
-const radioAtv7 = document.getElementsByName('radio-atv7');
-const textAtv7 = document.querySelector('.text-atv7');
-let imc = 0;
-
-inputAtv7.forEach((element) => {
-    element.addEventListener('keyup', () => {
-        imc = Number(inputAtv7[0].value / (inputAtv7[1].value * inputAtv7[1].value));
-        if (inputAtv7[0] != '' && inputAtv7[1] != '') {
-            if(radioAtv7[1].checked) {
-                if(imc < 19.1) {
-                    textAtv7.innerText = `${radioAtv7[1].value}: Abaixo do peso`
-                } else if (imc < 25.8) {
-                    textAtv7.innerText = `${radioAtv7[1].value}: Peso normal`
-                } else if (imc < 27.3) {
-                    textAtv7.innerText = `${radioAtv7[1].value}: Acima do peso`
-                } else if (imc < 32.3) {
-                    textAtv7.innerText = `${radioAtv7[1].value}: Acima do peso idela`
-                } else {
-                    textAtv7.innerText = `${radioAtv7[1].value}: Obeso`
-                }
-            } else if(radioAtv7[0].checked) {
-                if(imc < 20.7) {
-                    textAtv7.innerText = `${radioAtv7[0].value}: Abaixo do peso`
-                } else if (imc < 26.4) {
-                    textAtv7.innerText = `${radioAtv7[0].value}: Peso normal`
-                } else if (imc < 27.8) {
-                    textAtv7.innerText = `${radioAtv7[0].value}: Acima do peso`
-                } else if (imc < 31.1) {
-                    textAtv7.innerText = `${radioAtv7[0].value}: Acima do peso idela`
-                } else {
-                    textAtv7.innerText = `${radioAtv7[0].value}: Obeso`
-                }
-            }
-        }
-    })
-})
-
-
-// 8) 
-
-const valorSalario = document.querySelector('#salario-atv8');
-const textAtv8 = document.getElementById('text-atv8');
-
-valorSalario.addEventListener('keyup', () => {
-    let valorImposto = Number(valorSalario.value);
-
-    if (valorImposto <= 1434) {
-        textAtv8.value = valorImposto;      
-    } else if ( valorImposto <= 2150 ) {
-        textAtv8.value = `Imposto: ${(valorImposto * .075).toFixed(2)} || Salario: ${valorImposto - valorImposto * .075}`;
-    } else if (valorImposto <= 2866) {
-        textAtv8.value = `Imposto: ${(valorImposto * .15).toFixed(2)} || Salario: ${valorImposto - valorImposto * .15}`
-    } else if (valorImposto <= 3582) {
-        textAtv8.value = `Imposto: ${(valorImposto * .225).toFixed(2)} || Salario: ${valorImposto - valorImposto * .225}`
+function slider(list, index, style) {
+  for (let i = 0; i < list.length; i++) {
+    if (i == index) {
+      list[i].classList.remove(style);
     } else {
-        textAtv8.value = `Imposto: ${(valorImposto * .275).toFixed(2)} || Salario: ${valorImposto - valorImposto * .275}`
-    } 
-})
-
-
-// 9)
-
-const inputsAtv9 = document.querySelectorAll('#valorAtv9');
-const operacoes = document.querySelectorAll('.button-atv9');
-const textAtv9 = document.querySelector('.text-atv9')
-
-operacoes.forEach((element) => {
-    element.addEventListener('click', () => {      
-        if (inputsAtv9[0].value != "" && inputsAtv9[1].value != "") {
-            switch(element.innerText) {
-                case '+':
-                    textAtv9.innerText = `Soma: ${+inputsAtv9[0].value + +inputsAtv9[1].value}`
-                    break;
-                case '-':
-                    textAtv9.innerText = `Subtração: ${+inputsAtv9[0].value - +inputsAtv9[1].value}`
-                    break;
-                case '*':
-                    textAtv9.innerText = `Multiplicação: ${+inputsAtv9[0].value * +inputsAtv9[1].value}`
-                    break;
-                case '/':
-                    textAtv9.innerText = `Divisão: ${+inputsAtv9[0].value / +inputsAtv9[1].value}`
-                    break;
-            }    
-        }
-    })
-})
-
-
-// 10)
-
-const inptAtv10 = document.querySelector('#input-atv10');
-const textAtv10 = document.querySelector('.text-atv10');
-
-inptAtv10.addEventListener('keyup', () => {
-    let fatorial = +inptAtv10.value;
-    let j = 1;
-
-    textAtv10.innerText = ''
-    for(let x = 1; x < fatorial ; x++) {
-        textAtv10.innerHTML += `<tr>
-                                    <td>${x}</td>
-                                    <td>${j}</td>
-                                </tr>`
-        j += j * x
+      list[i].classList.add(style);
     }
-    textAtv10.innerHTML += `<tr>
-                                <td>${fatorial}</td>
-                                <td>${j}</td>
-                            </tr>`
-})
+  }
+}
 
+const eventMenu = (menu, sections, indexStarter = 0) => {
+  for (let x = 0; x < menu.length; x++) {
+    if (!sections[x].classList.contains('d-block')) {
+      for (let j = 0; j < sections.length; j++) {
+        sections[j].classList.add('d-block');
+      }
+      sections[indexStarter].classList.remove('d-block');
+    }
 
-// 11)
+    menu[x].addEventListener('click', () => {
+      slider(sections, x, 'd-block');
+    });
+  }
+};
 
-const valorAtv11 = document.getElementById('inputAtv11');
-const textAtv11 = document.querySelector('.text-atv11');
-let count11;
+eventMenu(menu, sections, 2);
+// 1)
 
-valorAtv11.addEventListener('keyup', () => {
-	count11 = 0
-	for(let x = 0; x <= Number(valorAtv11.value); x++) {
-		count11+= x;
-	}
-	textAtv11.innerHTML = `Valor Da soma de 0 a N: <b>${count11}</b>`
-})
+const table = document.querySelector('.ex-1 table');
+const nome = document.querySelector('#inptNome');
+const buttons = document.querySelectorAll('.btn');
 
+let appendTable = `<thead><tr><td> Index</td><td> Nome</td></tr></thead>`;
+let count = 0;
 
-// 12)
+for (let i = 0; i < buttons.length; i++) {
+  buttons[i].addEventListener('click', () => {
+    if (buttons[i].innerText == 'Adicionar' && nome.value != '') {
+      appendTable += `<tr><td>${(count += 1)}</td> <td>${nome.value}</td></tr>`;
+    } else {
+      count = 0;
+      appendTable = `<thead><tr><td> Index</td><td> Nome</td></tr></thead>`;
+    }
+    table.innerHTML = appendTable;
+  });
+}
 
-const valorAtv12 = document.querySelector('#input-atv12');
-const textAtv12 = document.querySelector('.text-atv12');
-const section12 = document.querySelector('.atv12');
-let random = Math.round(Math.random() * 100)
+// 2)
 
-console.log(`Resultado Random: ${random}`)
+const matriz = document.querySelector('.ex-2 table tbody');
+const inptAtv2 = document.querySelectorAll('.btnAtv2');
 
-valorAtv12.addEventListener('keyup', () => {
-	textAtv12.style.margin = '10px 0';
-	textAtv12.style.width = '150px';
-	textAtv12.style.padding = '10px';
-	textAtv12.style.textAlign = 'center';
+for (let i = 0; i < inptAtv2.length; i++) {
+  let appendMatriz = '';
+  inptAtv2[i].addEventListener('keyup', () => {
+    appendMatriz = '';
+    if (inptAtv2[0].value != '' && inptAtv2[1].value != '') {
+      for (let l = 1; l <= +inptAtv2[0].value; l++) {
+        appendMatriz += `<tr>`;
+        for (let c = 1; c <= +inptAtv2[1].value; c++) {
+          appendMatriz += `<td>${l} ${c}</td>`;
+        }
+        appendMatriz += `</tr>`;
+      }
+    }
+    matriz.innerHTML = appendMatriz;
+  });
+}
 
+// 3)
 
-	if (Number(valorAtv12.value) == random) {
-		textAtv12.style.backgroundColor = 'orange';
-		let button = document.createElement('button');
-		button.setAttribute('class', 'button-atv12')
-		textAtv12.innerHTML = `Você venceu`
-		button.innerText = 'Tentar Novamente'
-		section12.appendChild(button);
-		random = -999
-		button.addEventListener('click', () => {	
-			random = Math.round(Math.random() * 100)
-			valorAtv12.value = ''
-			textAtv12.innerHTML = ''
-			textAtv12.style.backgroundColor = 'transparent'
-			section12.removeChild(section12.lastChild)
-		})
-	} else if (valorAtv12.value == '') {
-		valorAtv12.value = ''
-		textAtv12.innerHTML = ''
-		textAtv12.style.backgroundColor = 'transparent'
-	}
-	else if (Number(valorAtv12.value) > random) {
-		textAtv12.innerHTML = `Este valor é MAIOR`;
-		textAtv12.style.backgroundColor = 'darkred';
-	} else if (Number(valorAtv12.value) < random) {
-		textAtv12.innerHTML = 'Este valor é MENOR'
-		textAtv12.style.backgroundColor = 'green'
-	}
-})
+const menuPage = document.querySelectorAll('.menu-ex3 ul li');
+const pages = document.querySelectorAll('.atv3');
+
+eventMenu(menuPage, pages, 2);
+
+// cronometro
+
+const crono = document.querySelector('.crono');
+const btnCrono = document.querySelectorAll('.btn-crono');
+const valorCrono = document.createElement('p');
+let countCrono = 0;
+
+crono.appendChild(valorCrono);
+
+let cronoInterval;
+
+btnCrono.forEach((element) => {
+  element.addEventListener('click', () => {
+    if (element.innerText == 'Start') {
+      cronoInterval = setInterval(() => {
+        `${(valorCrono.innerText = countCrono += 1)}`;
+      }, 1000);
+      btnCrono[0].disabled = true;
+    } else if (element.innerText == 'Parar') {
+      clearInterval(cronoInterval);
+      btnCrono[0].disabled = false;
+    } else {
+      countCrono = 0;
+      btnCrono[0].disabled = false;
+    }
+  });
+});
+
+// tabuada
+
+const tab = document.querySelector('.tab');
+const inptTab = document.querySelectorAll('.inpt-tab');
+const resultTab = document.querySelector('.result-tab');
+
+inptTab.forEach((element) => {
+  element.addEventListener('keyup', () => {
+    resultTab.innerHTML = '';
+    if (inptTab[0].value != '' && inptTab[1].value != '') {
+      for (let x = 1; x <= +inptTab[1].value; x++) {
+        resultTab.innerHTML += `
+            ${+inptTab[0].value} X ${x} = ${+inptTab[0].value * x} <br>`;
+      }
+    }
+  });
+});

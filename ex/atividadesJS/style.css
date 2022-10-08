@@ -1,134 +1,93 @@
+:root {
+    --w-conteiner: 1220px;
+    --w-atv3-menu: 800px;
+}
+
 * {
     margin: 0;
     padding: 0;
+    list-style: none;
+    outline: none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-body {
-    background-color: rgb(17, 17, 17);
+input {
+    color: #101010;
 }
 
-.bg {
+button {
+    color: black;
+}
+
+.bg-image {
     position: fixed;
-    left: 10%;
     z-index: -1;
-    width: 80%;
+    width: 100%;
     height: 100%;
-    background-image:  url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/dc3e1391-fbf2-48ff-9e4b-b73f9d879505/dfefe1q-8aaea67c-492c-4544-8f37-9cd13d41cfc4.png/v1/fill/w_1280,h_854,q_80,strp/welcome_to_night_city_by_clevergull_dfefe1q-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9ODU0IiwicGF0aCI6IlwvZlwvZGMzZTEzOTEtZmJmMi00OGZmLTllNGItYjczZjlkODc5NTA1XC9kZmVmZTFxLThhYWVhNjdjLTQ5MmMtNDU0NC04ZjM3LTljZDEzZDQxY2ZjNC5wbmciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.roYNAHQulcOpQvwNZuh1Ao4M688wTlHJshMGS4nxSPw');
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b3be1dae-3caa-4d45-be6c-3de586ba95e2/degzd3v-302bc5b8-6362-4858-8d8d-b13f90c53cfd.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2IzYmUxZGFlLTNjYWEtNGQ0NS1iZTZjLTNkZTU4NmJhOTVlMlwvZGVnemQzdi0zMDJiYzViOC02MzYyLTQ4NTgtOGQ4ZC1iMTNmOTBjNTNjZmQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.JM_2GNN9ezx5rBd01cLhAqHJlV-hA1Sd2UJPqdqxv4Q');
     background-size: cover;
-    -webkit-mask-image: linear-gradient(to top, transparent 1%, black 100%);
-    animation: mud 30s infinite 10s;
 }
 
-@keyframes mud {
-    0% {filter: hue-rotate(0deg);}
-    100% {filter: hue-rotate(360deg);}
+/*block*/
+
+.d-block {
+    display: none;   
 }
 
-h1, h2, h3, h4, h5 {
-    color: orange;
-}
+/*block*/
 
 .container {
-    width: 700px;
+    color: white;
     margin: 0 auto;
-    background-color: rgba(31, 31, 31, 0.911);
-    padding: 50px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
+    max-width: var(--w-conteiner);
+    background-color: rgba(54, 54, 54, 0.842);
 }
 
-.container section {
-    padding: 50px;
-    margin: 0 auto  ;
-    position: relative;
+.nav-menu {
+    background-color: rgba(39, 39, 39, 0.932); 
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
 }
 
-.container section:nth-child(2) {
-    background-color: black;
+.nav-menu li {
+    width: calc(var(--w-conteiner)/ 3);
+    padding: 30px 0;
+    text-align: center;  
 }
 
-.container section p {
-    padding: 10px 0 20px 0; 
-}
-
-.container section div{
-    margin: 5px 0;
-}
-
-.container section input[type="text"] {
-    margin: 10px 10px 10px 0;
-    padding: 10px;
-    border: none;
-    outline: none;
-}
-
-.container section div label {
-    margin: 0 10px 0 0;
-}
-
-/* STYLE ATv 8*/
-
-.imposto-table {
-    margin: 15px 0;
-}
-
-.imposto-table td, tr {
-    border: 1px solid rgb(75, 75, 75);
-    background-color: rgba(26, 26, 26, 0.856);
-    padding: 10px;
-}
-
-#text-atv8 {
-    width: 250px;
-    color: white;
-}
-
-/* STYLE ATv 9*/
-
-.button-atv9 {
-    background-color: orange;
-    font-size: 1.1em;
-    font-weight: bold;
-    border: none;
-    color: black;
-    transition: .3s;
+.nav-menu li:hover {
+    background-color: rgba(0, 0, 0, 0.863);
     cursor: pointer;
-    width: 35px;
-    height: 35px;
 }
 
-.button-atv9:hover {
-    border-radius: 5%;
-    font-size: 1.5em;
-    background-color: rgb(255, 115, 0);
+
+main section { 
+    margin-top: 50px;
 }
 
-/* STYLE ATv 10*/
-
-.text-atv10 tr td {
-    padding: 10px;
+.ex-1 table tr, td{
+    padding: 20px;
 }
 
-/* STYLE ATv 12*/
+.menu-ex3 {
+    width: 800px;
+    margin: 0 auto;
+}
 
-.button-atv12 {
-    border: none;
-    padding: 10px;
-    color: rgb(255, 255, 255);
-    font-weight: bolder;
-    background-color: rgb(41, 34, 23);
+.menu-ex3 ul{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu-ex3 ul li {
+    width: calc(var(--w-atv3-menu) / 3);
+    background-color: green;
+    text-align: center;
+}
+
+.menu-ex3 ul li:hover {
+    background-color: aliceblue;
     cursor: pointer;
-    border-radius: 5px;
-    animation: animaBut 3s infinite;
-    position: absolute;
-}
-
-@keyframes animaBut {
-    0% {
-        filter: hue-rotate(0deg);
-        top: 90%;
-    } 50% {
-        filter: hue-rotate(360deg);
-        top: 91%;
-    } 100% {top: 90%;}
 }
