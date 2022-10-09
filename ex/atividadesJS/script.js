@@ -75,7 +75,7 @@ for (let i = 0; i < inptAtv2.length; i++) {
 const menuPage = document.querySelectorAll('.menu-ex3 ul li');
 const pages = document.querySelectorAll('.atv3');
 
-eventMenu(menuPage, pages, 2);
+eventMenu(menuPage, pages, 1);
 
 // cronometro
 
@@ -100,7 +100,29 @@ btnCrono.forEach((element) => {
       btnCrono[0].disabled = false;
     } else {
       countCrono = 0;
-      btnCrono[0].disabled = false;
+      btnCrono[0].disabled = true;
+    }
+  });
+});
+
+// SlideShow
+
+const buttonsSlide = document.querySelectorAll('.buttons-slide button');
+const slide = document.querySelector('.slides');
+let margin = 0;
+console.log(slide.attributes);
+
+buttonsSlide.forEach((element) => {
+  element.addEventListener('click', () => {
+    if (element.title == 'frente') {
+      if (margin > -slide.clientWidth) {
+        margin += -800;
+        slide.style.marginLeft = margin + 'px';
+      }
+    } else if (margin == 0) {
+    } else {
+      margin += 800;
+      slide.style.marginLeft = margin + 'px';
     }
   });
 });

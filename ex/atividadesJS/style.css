@@ -71,6 +71,87 @@ main section {
     padding: 20px;
 }
 
+/*
+*/
+
+.slide-show {
+    width: var(--w-atv3-menu);
+    overflow: hidden;
+    margin: 30px auto;
+    padding-bottom: 30px;
+    position: relative;
+}
+
+.slides {
+    width: 400%;
+    
+    animation:1s animaSlide normal;
+    display: flex;
+}
+
+@keyframes animaSlide {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.slides img {
+    width: 800px;
+    height: 570px;
+}
+
+.buttons-slide button {
+    background-color: rgba(173, 173, 173, 0.425);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    position: absolute;
+    cursor: pointer;
+}
+
+.buttons-slide button[title="frente"] {
+    left: 92%;
+    top: 45% ;
+}
+
+.buttons-slide button[title="atras"] {
+    left: 20px;
+    top: 45% ;
+}
+
+.buttons-slide button[title="atras"]::after {
+    content: ' ';
+    position: absolute;
+    top: 35%;
+    left: 35%;
+    width: 10px;
+    height: 10px;
+    transform: rotate(315deg);
+    border-top: 3px solid rgba(43, 43, 43, 0.781);
+    border-left: 3px solid rgba(43, 43, 43, 0.781);
+}
+
+.buttons-slide button[title="frente"]::after {
+    content: ' ';
+    position: absolute;
+    top: 35%;
+    left: 30%;
+    width: 10px;
+    height: 10px;
+    transform: rotate(135deg);
+    border-top: 3px solid rgba(43, 43, 43, 0.781);
+    border-left: 3px solid rgba(43, 43, 43, 0.781);
+}
+
+.buttons-slide button[title="atras"]:hover, .buttons-slide button[title="frente"]:hover {
+    background-color: rgba(223, 223, 223, 0.836);
+}
+
+
+
+/*
+*/
+
 .menu-ex3 {
     width: 800px;
     margin: 0 auto;
