@@ -61,7 +61,7 @@ for (let i = 0; i < inptAtv2.length; i++) {
       for (let l = 1; l <= +inptAtv2[0].value; l++) {
         appendMatriz += `<tr>`;
         for (let c = 1; c <= +inptAtv2[1].value; c++) {
-          appendMatriz += `<td>${l} ${c}</td>`;
+          appendMatriz += `<td class="td-matriz">${l} ${c}</td>`;
         }
         appendMatriz += `</tr>`;
       }
@@ -75,7 +75,7 @@ for (let i = 0; i < inptAtv2.length; i++) {
 const menuPage = document.querySelectorAll('.menu-ex3 ul li');
 const pages = document.querySelectorAll('.atv3');
 
-eventMenu(menuPage, pages, 1);
+eventMenu(menuPage, pages, 0);
 
 // cronometro
 
