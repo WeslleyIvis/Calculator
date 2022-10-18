@@ -84,6 +84,7 @@ const btnCrono = document.querySelectorAll('.btn-crono');
 const valorCrono = document.createElement('p');
 let countCrono = 0;
 
+valorCrono.setAttribute('class', 'crono-v');
 crono.appendChild(valorCrono);
 
 let cronoInterval;
@@ -144,3 +145,38 @@ inptTab.forEach((element) => {
     }
   });
 });
+
+let dado1,
+  dado2,
+  ponto,
+  rodada = 1,
+  ok = true;
+
+do {
+  dado1 = Math.floor(Math.random() * 10 + 1);
+  dado2 = Math.floor(Math.random() * 10 + 1);
+  let total = dado1 + dado2;
+
+  if (rodada == 1) {
+    if (total == 2 || total == 3 || total == 12) {
+      console.log('Perdeu craps');
+      ok = false;
+    } else if (total == 7 || total == 11) {
+      console.log('Ganhou');
+      ok = false;
+    } else if ((total >= 4 && total <= 6) || (total >= 8 && total <= 10)) {
+      ponto = total;
+      console.log(`Seu ponto: ${ponto}`);
+    }
+  } else {
+    if (ponto == total) {
+      console.log(`Ganhou CRAPS na rodada ${rodada}`);
+      ok = false;
+    } else if (total == 7) {
+      console.log(`Perdeu Craps na rodada ${rodada}`);
+      ok = false;
+    }
+    console.log(total);
+  }
+  rodada++;
+} while (ok);
