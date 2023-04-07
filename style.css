@@ -6,12 +6,13 @@
 
 body {
     background-color: whitesmoke;
-    padding: 30px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .calculator {
+
     width: 400px;
-    margin: 0 auto;
+    margin: 10% auto;
     background-image: linear-gradient(150deg, rgb(34, 34, 34) -10%, rgb(221, 221, 221));
     padding: 20px;
     border-radius: 10px;
@@ -30,7 +31,7 @@ body {
     margin-bottom: 20px;
     background-color: rgb(63, 63, 63);
     color: rgb(255, 255, 255);
-    font: normal 3rem serif;
+    font: normal 3rem 'Segoe UI';
     overflow: hidden;
 }
 
@@ -54,6 +55,7 @@ body {
 
 .calculator button {
     background-color: rgb(12, 11, 11);
+    border: none;
     color: white;
     padding: 20px;
     border-radius: 5px;
@@ -63,6 +65,6 @@ body {
 }
 
 button:hover {
-    background-color: rgb(218, 218, 218);
-    color: rgb(83, 83, 83);
+    background-color: rgb(158, 158, 158);
+    color: rgb(245, 245, 245)
 }

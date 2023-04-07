@@ -18,7 +18,7 @@
             background-color: burlywood;
             margin: 30px;
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(5, 1fr);
             gap: 10px;
         }
 
@@ -51,6 +51,7 @@
         <div class="dropzone"></div>
         <div class="dropzone"></div>
         <div class="dropzone"></div>
+        <div class="dropzone"></div>
     </section>
 
     <script>
@@ -72,10 +73,13 @@
             }
         }
 
-        let dragged = null;
+
 
         const div = new creatElement('input', 'Hello teste');
         const dragg = div.create();
+
+        const div1 = new creatElement('input', 'Hello teste');
+        const dragg1 = div.create();
 
         blocos[0].appendChild(dragg).addEventListener('dragstart', (element) => {
             element.target.classList.add('a');
