@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="grid.css">
+
+    <title>Document</title>
+</head>
+
+<body>
+    <main class="main">
+        <div class="item-1">1</div>
+        <div class="item-2">2</div>
+        <div class="item-3">3</div>
+        <div class="item-4">4</div>
+        <div class="item-5">5</div>
+        <div class="item-6">6</div>
+    </main>
+
+    <main class="grid">
+        <div class="grid-1">1</div>
+        <div class="grid-2">2</div>
+        <div class="grid-3">3</div>
+        <div class="grid-4">4</div>
+        <div class="grid-5">5</div>
+        <div class="grid-6">6</div>
+    </main>
+
+
+
+    <script>
+
+        class DragDrop {
+            constructor(columns = 3) {
+                this.dropContent;
+                this.dragItem;
+                this.columns = columns;
+            }
+
+            createDragItem() {
+                const item = document.createElement('img');
+                item.setAttribute('src', "https://i.pinimg.com/564x/8f/57/4d/8f574d2721bd2b9bc321d7d7236574b9.jpg")
+                item.classList.add('drag-img');
+                item.id = 'item';
+
+                item.setAttribute('draggable', "true");
+
+                this.dragstart(item);
+
+                return item;
+            }
+
+            createContent() {
+                const content = document.createElement('section');
+                content.classList.add('content');
+
+                for (let i = 0; i < this.columns; i++) {
+                    let dropBox = document.createElement('div');
+                    dropBox.classList.add('dragdrop');
+
+                    this.dragover(dropBox);
+                    this.drop(dropBox);
+
+                    content.appendChild(dropBox);
+                }
+
+                document.body.appendChild(content)
+                return content;
+            }
+
+            dragstart(item) {
+                item.addEventListener('dragstart', (event) => {
+                    event.dataTransfer.setData("text", item.id)
+                })
+            }
+
+            dragover(dropBox) {
+                dropBox.addEventListener('dragover', (event) => {
+                    event.preventDefault();
+                })
+            }
+
+            drop(dropBox) {
+                dropBox.addEventListener('drop', (event) => {
+                    event.preventDefault();
+
+                    const data = event.dataTransfer.getData("text")
+
+                    dropBox.appendChild(document.getElementById(data));
+                })
+            }
+
+            handleEvent() {
+                this.dropContent = this.createContent();
+                this.dragItem = this.createDragItem();
+
+                document.body.appendChild(this.dragItem)
+                document.body.appendChild(this.dropContent)
+            }
+        }
+
+        const draginDrop = new DragDrop(5);
+
+        draginDrop.handleEvent();
+
+        async function data() {
+            await fetch('./data.json')
+                .then(response => response.json())
+                .then(data => {
+                    //writeData(data);
+                })
+                .catch(err => console.log({ error: err }))
+        }
+
+        data();
+
+        function writeData(data = []) {
+            for (let i = 0; i < data.length; i++) {
+                let element = document.createElement("div");
+                element.innerText = data[i].nome;
+                document.body.appendChild(element);
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
