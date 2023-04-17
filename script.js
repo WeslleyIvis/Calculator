@@ -6,7 +6,7 @@ class Calculator {
     this.regex = /^[0-9]$/;
     this.configButtons = [
       'C',
-      'DEL',
+      'CA',
       '%',
       '/',
       '7',
@@ -25,6 +25,9 @@ class Calculator {
       ',',
       '=',
     ];
+    this.listCalc = [];
+    this.calculatedList = [];
+    this.operatorCalc = [];
   }
 
   createCalculator() {
@@ -64,16 +67,30 @@ class Calculator {
 
   handleEvents() {
     this.buttons.childNodes.forEach((element) => {
-      element.addEventListener('click', () => {
-        if (this.regex.test(element.value)) {
-          this.addValue(element.value);
-        } else {
-        }
-      });
+      element.addEventListener('click', () => this.addValue(element));
     });
   }
 
-  addValue() {}
+  addValue({ value }) {
+    console.log(this.listCalc);
+    if (this.regex.test(+value)) {
+      this.calculatedList.push(+value);
+    } else {
+      if (/[\+\-\/\*]/.test(value)) {
+        this.calculatedList = [];
+        this.listCalc.push(value);
+      } else {
+        this.calculatedList.push(value);
+      }
+      this.listCalc.push(this.calculatedList);
+      console.log(this.listCalc.join('').replace(/,/g, ''));
+    }
+  }
+
+  addOperator(operator) {
+    this.operatorCalc.push(operator);
+    console.log(operator);
+  }
 
   create() {
     this.createCalculator();
